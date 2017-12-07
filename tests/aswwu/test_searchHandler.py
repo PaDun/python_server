@@ -18,7 +18,7 @@ def test_searchTest2(testing_server):
                     'email':'john.doe@wallawalla.edu',                                  
                     'full_name': 'John Doe',
                     'views':'43'}]}
-    url = "http://127.0.0.1:8888/search/1718/ryan.rabello"
+    url = "http://127.0.0.1:8888/search/1718/john.doe"
     resp = requests.get(url)
     assert (resp.status_code == 200)
     assert (json.loads(resp.text) == expected_data)
