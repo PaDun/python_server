@@ -15,7 +15,7 @@ def test_searchTest1(testing_server):
 def test_searchTest2(testing_server):
     expected_data = {'results': [{'username':'john.doe',
                     'photo':'profiles/1718/00958-2019687.jpg',
-                    'email':'john.doe@wallawalla.edu',                                  
+                    'email':'',                                  
                     'full_name': 'John Doe',
                     'views':'43'}]}
     url = "http://127.0.0.1:8888/search/1718/john.doe"
