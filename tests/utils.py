@@ -88,14 +88,6 @@ ELECTION_TABLE = Table(
 )
 
 
-PROFILES_TABLE = Table('profiles', METADATA,
-                               Column('username', String(250)),
-                               Column('photo', String(250)),
-                               Column('email', String(250)),
-                               Column('full_name', String(250)),
-                               Column('views', Integer))
-
-
 def gen_askanythings(number=5):
     """Generate askanythings
 
