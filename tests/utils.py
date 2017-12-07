@@ -4,7 +4,7 @@
 from contextlib import contextmanager
 from datetime import datetime
 
-from sqlalchemy import Boolean, Column, DateTime, MetaData, String, Table
+from sqlalchemy import Boolean, Column, DateTime, MetaData, String, Table, Integer
 
 from names import get_first_name, get_last_name
 
