@@ -17,7 +17,7 @@ def test_searchTest2(testing_server):
                     'photo':'profiles/1718/00958-2019687.jpg',
                     'email':'',                                  
                     'full_name': 'John Doe',
-                    'views':'43'}]}
+                    'views':'6'}]}
     url = "http://127.0.0.1:8888/search/1718/john.doe"
     resp = requests.get(url)
     assert (resp.status_code == 200)
