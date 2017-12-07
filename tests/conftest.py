@@ -3,6 +3,7 @@ import threading
 import tornado.ioloop
 import application
 from sqlalchemy import create_engine
+from settings import DATABASE
 
 
 def start_testing_server():
@@ -41,7 +42,37 @@ def testing_server():
 @pytest.fixture()
 def peopledb_conn(scope="module"):
     engine = create_engine(
-        'sqlite:///databases/people.db?check_same_thread=False')
+        'sqlite://' + DATABASE['location'] + '/people.db?check_same_thread=False')
+    conn = engine.connect()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def jobsdb_conn(scope="module"):
+    """
+    Create connection to the jobs database
+    """
+    engine = create_engine(
+        'sqlite:///databases/jobs.db?check_same_thread=False')
+    conn = engine.connect()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def electiondb_conn(scope="module"):
+    engine = create_engine(
+        'sqlite:///databases/senate_elections.db?check_same_thread=False')
+    conn = engine.connect()
+    yield conn
+    conn.close()
+
+
+@pytest.fixture()
+def archivesdb_conn(scope="module"):
+    engine = create_engine(
+        'sqlite:///databases/archives.db?check_same_thread=False')
     conn = engine.connect()
     yield conn
     conn.close()
