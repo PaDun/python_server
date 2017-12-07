@@ -9,3 +9,5 @@ script:
 after_success:
   - codeclimate-test-reporter
   - codecov
+  - pytest --cov-report xml --cov=src tests/
+  - python-codacy-coverage -r coverage.xml
