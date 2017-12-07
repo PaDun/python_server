@@ -28,8 +28,8 @@ class FeedHandler(BaseHandler):
         elif name == "issuu":
             http_client = HTTPClient()
             try:
-                response = http_client.fetch("http://search.issuu.com/api/2_0/document?username=aswwucollegian&pageSize"
-                                             "=1&responseParams=title,description&sortBy=epoch")
+                response = http_client.fetch("http://search.issuu.com/api/2_0/document?username=aswwucollegian"
+                                             "&pageSize=1&responseParams=title,description&sortBy=epoch")
                 self.write(response.body)
             except Exception as e:
                 self.write("{error: '" + str(e) + "'}")
