@@ -26,8 +26,9 @@ class FeedHandler(BaseHandler):
             # TODO: Make this asynchronous and move access.token to aswwu/databases git repo
             http_client = HTTPClient()
             try:
-                response = http_client.fetch("https://api.instagram.com"
-                        "/v1/users/self/media/recent/?access_token=" + token)
+                url = "https://api.instagram.com"\
+                        "/v1/users/self/media/recent/?access_token="
+                response = http_client.fetch( + token)
                 self.write(response.body)
             except Exception as e:
                 self.write("{error: '" + str(e) + "'}")
@@ -36,9 +37,10 @@ class FeedHandler(BaseHandler):
     def get_issuu(self):
         http_client = HTTPClient()
         try:
-            response = http_client.fetch("http://search.issuu.com/api/2_0/"
-                    "document?username=aswwucollegian&pageSize=1"
-                    "&responseParams=title,description&sortBy=epoch")
+            url = "http://search.issuu.com/api/2_0/"\
+                    "document?username=aswwucollegian&pageSize=1"\
+                    "&responseParams=title,description&sortBy=epoch"
+            response = http_client.fetch(url)
             self.write(response.body)
         except Exception as e:
             self.write("{error: '" + str(e) + "'}")
