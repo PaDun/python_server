@@ -6,7 +6,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b01a02d4eb0c40e6974db21676ee1604)](https://www.codacy.com/app/prestonc/python_server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prestoncarman/python_server&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/prestoncarman/python_server/branch/develop/graph/badge.svg)](https://codecov.io/gh/prestoncarman/python_server)
 
-
 # REST API for ASWWU
 This is a python based REST api that ASWWU web uses for EVERYTHING.
 
