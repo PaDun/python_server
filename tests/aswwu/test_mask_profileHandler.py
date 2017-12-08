@@ -44,7 +44,7 @@ def test_profile_handler_current_year(testing_server, peopledb_conn):
         "quote_author": "None",
         "relationship_status": "None",
         "username" : "test.profile1",
-        "views" : "2",
+        "views" : "1",
         "website": "None",
      }
 
