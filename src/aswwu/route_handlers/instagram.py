@@ -28,7 +28,7 @@ class FeedHandler(BaseHandler):
             try:
                 url = "https://api.instagram.com"\
                         "/v1/users/self/media/recent/?access_token="
-                response = http_client.fetch( + token)
+                response = http_client.fetch(url + token)
                 self.write(response.body)
             except Exception as e:
                 self.write("{error: '" + str(e) + "'}")
