@@ -9,7 +9,7 @@ def test_search_specific_current(testing_server, peopledb_conn):
                     'full_name':'None',
                     'photo':'profiles/1617/00958-2019687.jpg',
                     'username':'test.profile1',
-                    'views':'1'
+                    'views':'2'
                     }]}
     with profile(peopledb_conn, list(gen_profiles(number = 3))):
         url = "http://127.0.0.1:8888/search/1718/test.profile1"
@@ -46,7 +46,7 @@ def test_search_single_letter_current(testing_server, peopledb_conn):
             'full_name':'None',
             'photo':'profiles/1617/00958-2019687.jpg',
             'username':'test.profile1',
-            'views':'1'
+            'views':'2'
         },{
             'email':'None',
             'full_name':'None',
@@ -75,7 +75,7 @@ def test_search_all_current(testing_server, peopledb_conn):
             'full_name':'None',
             'photo':'profiles/1617/00958-2019687.jpg',
             'username':'test.profile1',
-            'views':'1'
+            'views':'2'
         },{
             'email':'None',
             'full_name':'None',
@@ -138,7 +138,7 @@ def test_search_subgroup_current(testing_server, peopledb_conn):
             'full_name':'None',
             'photo':'profiles/1617/00958-2019687.jpg',
             'username':'test.profile1',
-            'views':'1'
+            'views':'2'
         },{
             'email':'None',
             'full_name':'None',
