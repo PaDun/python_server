@@ -11,7 +11,7 @@ def test_search_specific_current(testing_server, peopledb_conn):
                     'username':'test.profile1',
                     'views':'1'
                     }]}
-    with profile(peopledb_conn, list(gen_profiles(number = 3))): 
+    with profile(peopledb_conn, list(gen_profiles(number = 3))):
         url = "http://127.0.0.1:8888/search/1718/test.profile1"
         resp = requests.get(url)
     assert (resp.status_code == 200)
@@ -173,5 +173,45 @@ def test_search_subgroup_archive(testing_server, archivesdb_conn):
         resp = requests.get(url)
     assert (resp.status_code == 200)
     assert (json.loads(resp.text) == expected_data)
+
+def test_search_female_archives(testing_server, archivesdb_conn):
+    expected_data = {
+        'results': [{
+            'email':'None',
+            'full_name':'None',
+            'photo':'profiles/1617/00958-2019687.jpg',
+            'username':'test.profile0',
+            'views':'None'
+        }]}
+    with archived_profile(archivesdb_conn, list(gen_profiles(number = 1))):
+        url = 'http://127.0.0.1:8888/search/1617/gender=female'
+        resp = requests.get(url)
+    assert (resp.status_code == 200)
+    assert (json.loads(resp.text) == expected_data)
+
+def test_search_male_archives(testing_server, archivesdb_conn):
+    expected_data = {
+        'results': []}
+    with archived_profile(archivesdb_conn, list(gen_profiles(number = 1))):
+        url = 'http://127.0.0.1:8888/search/1617/gender=male'
+        resp = requests.get(url)
+    assert (resp.status_code == 200)
+    assert (json.loads(resp.text) == expected_data)
+
+def test_search_major_current(testing_server, peopledb_conn):
+    expected_data = {
+        'results': [{
+            'email':'None',
+            'full_name':'None',
+            'photo':'profiles/1617/00958-2019687.jpg',
+            'username':'test.profile0',
+            'views':'0'
+        }]}
+    with profile(peopledb_conn, list(gen_profiles(number = 1))):
+        url = 'http://127.0.0.1:8888/search/1718/majors=Computer'
+        resp = requests.get(url)
+    assert (resp.status_code == 200)
+    assert (json.loads(resp.text) == expected_data)
+
 
 #def test_views(testing_server):
