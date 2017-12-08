@@ -11,7 +11,7 @@ def test_search_specific_current(testing_server, peopledb_conn):
                     'username':'test.profile1',
                     'views':'2'
                     }]}
-    with profile(peopledb_conn, list(gen_profiles(number = 3))):
+    with profile(peopledb_conn, list(gen_profiles(number = 3))): 
         url = "http://127.0.0.1:8888/search/1718/test.profile1"
         resp = requests.get(url)
     assert (resp.status_code == 200)
