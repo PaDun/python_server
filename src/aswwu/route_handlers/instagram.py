@@ -26,8 +26,8 @@ class FeedHandler(BaseHandler):
             # TODO: Make this asynchronous and move access.token to aswwu/databases git repo
             http_client = HTTPClient()
             try:
-                response = http_client.fetch("https://api.instagram.com/v1/users/self/media/recent/?access_token="
-                                             + token)
+                response = http_client.fetch("https://api.instagram.com"
+                        "/v1/users/self/media/recent/?access_token=" + token)
                 self.write(response.body)
             except Exception as e:
                 self.write("{error: '" + str(e) + "'}")
