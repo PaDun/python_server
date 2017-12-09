@@ -158,10 +158,10 @@ def gen_profiles(number=5):
         """
         gender = ["male", "female"]
         majors = ["Computer Science", "Software Engineering", ""]
+        pet_peeves = ["Being tinkered with", ""]
         for i in xrange(number):
             username = "test.profile"
             username += `i`
-
 
             yield {
                 "id" : 100 + i,
@@ -169,7 +169,8 @@ def gen_profiles(number=5):
                 "photo": "profiles/1617/00958-2019687.jpg",
                 "majors": majors[i%3],
                 "username" : username, #Generates a new username archived.profile0, archived.profile1, etc.
-                "gender": gender[i%2]
+                "gender": gender[i%2],
+                "pet_peeves": pet_peeves[i%2]
         }
 
 
