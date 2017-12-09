@@ -156,17 +156,20 @@ def gen_profiles(number=5):
         dict        -- Record information
 
         """
+        gender = ["male", "female"]
+        majors = ["Computer Science", "Software Engineering", ""]
         for i in xrange(number):
             username = "test.profile"
             username += `i`
+
 
             yield {
                 "id" : 100 + i,
                 "wwuid": 9000000 + i,
                 "photo": "profiles/1617/00958-2019687.jpg",
-                "majors": "Computer Science",
+                "majors": majors[i%3],
                 "username" : username, #Generates a new username archived.profile0, archived.profile1, etc.
-                "gender": "female"
+                "gender": gender[i%2]
         }
 
 
