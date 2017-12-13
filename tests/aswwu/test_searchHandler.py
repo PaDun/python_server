@@ -4,13 +4,15 @@ from tests.utils import profile, archived_profile, gen_profiles
 
 
 def test_search_specific_current(testing_server, peopledb_conn):
-    expected_data = {'results': [{
-                    'email':'None',
-                    'full_name':'None',
-                    'photo':'profiles/1617/00958-2019687.jpg',
-                    'username':'test.profile1',
-                    'views':'1'
-                    }]}
+    expected_data = {
+        'results': [{
+            'email':'None',
+            'full_name':'None',
+            'photo':'profiles/00958-2019687.jpg',
+            'username':'test.profile1',
+            'views':'1'
+        }]
+    }
     with profile(peopledb_conn, list(gen_profiles(number = 3))):
         url = "http://127.0.0.1:8888/search/1718/test.profile1"
         resp = requests.get(url)
@@ -19,13 +21,15 @@ def test_search_specific_current(testing_server, peopledb_conn):
 
 
 def test_search_specific_archive(testing_server, archivesdb_conn):
-    expected_data = {'results': [{
-                    'email':'None',
-                    'full_name':'None',
-                    'photo':'profiles/1617/00958-2019687.jpg',
-                    'username':'test.profile1',
-                    'views':'None'
-                    }]}
+    expected_data = {
+        'results': [{
+            'email':'None',
+            'full_name':'None',
+            'photo':'profiles/00958-2019687.jpg',
+            'username':'test.profile1',
+            'views':'None'
+        }]
+    }
     with archived_profile(archivesdb_conn, list(gen_profiles(number = 3))):
         url = "http://127.0.0.1:8888/search/1617/test.profile1"
         resp = requests.get(url)
@@ -38,19 +42,19 @@ def test_search_single_letter_current(testing_server, peopledb_conn):
         "results": [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile0',
             'views':'0'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'1'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile2',
             'views':'0'
         }]
@@ -67,19 +71,19 @@ def test_search_all_current(testing_server, peopledb_conn):
         "results": [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile0',
             'views':'0'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'1'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile2',
             'views':'0'
         }]
@@ -97,19 +101,19 @@ def test_search_single_letter_archive(testing_server, archivesdb_conn):
         "results": [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile0',
             'views':'None'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'None'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile2',
             'views':'None'
         }]
@@ -136,13 +140,13 @@ def test_search_subgroup_current(testing_server, peopledb_conn):
         'results': [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'1'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile10',
             'views':'0'
         }]}
@@ -158,13 +162,13 @@ def test_search_subgroup_archive(testing_server, archivesdb_conn):
         'results': [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile2',
             'views':'None'
         },{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile20',
             'views':'None'
         }]}
@@ -179,7 +183,7 @@ def test_search_female_archives(testing_server, archivesdb_conn):
         'results': [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'None'
         }]}
@@ -194,7 +198,7 @@ def test_search_major_and_male_archive(testing_server, archivesdb_conn):
         'results': [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile0',
             'views':'None'
         }]}
@@ -209,7 +213,7 @@ def test_search_major_and_female_current(testing_server, peopledb_conn):
         'results': [{
             'email':'None',
             'full_name':'None',
-            'photo':'profiles/1617/00958-2019687.jpg',
+            'photo':'profiles/00958-2019687.jpg',
             'username':'test.profile1',
             'views':'1'
         }]}
@@ -218,5 +222,3 @@ def test_search_major_and_female_current(testing_server, peopledb_conn):
         resp = requests.get(url)
     assert (resp.status_code == 200)
     assert (json.loads(resp.text) == expected_data)
-
-#def test_views(testing_server):

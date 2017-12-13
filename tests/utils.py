@@ -166,7 +166,7 @@ def gen_profiles(number=5):
             yield {
                 "id" : 100 + i,
                 "wwuid": 9000000 + i,
-                "photo": "profiles/1617/00958-2019687.jpg",
+                "photo": "profiles/00958-2019687.jpg",
                 "majors": majors[i%3],
                 "username" : username, #Generates a new username archived.profile0, archived.profile1, etc.
                 "gender": gender[i%2],
